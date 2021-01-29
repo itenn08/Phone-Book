@@ -2,15 +2,17 @@ import React from 'react';
 import SearchForm from './SearchForm';
 import ListItem from './ListItem';
 import styles from './ClientList.module.css';
+import clients from '../../json/clients.json';
 
 
 const ClientList = () => {
     return(
         <div className={styles.container}>
         <SearchForm />
-        <ListItem avatar="https://news.northeastern.edu/wp-content/uploads/2019/06/Moganasundaram_001-750x0-c-default.jpg" firstName="Alex" lastName="Crooks" job="Enginer"/>
-        <ListItem avatar="https://news.northeastern.edu/wp-content/uploads/2019/06/Moganasundaram_001-750x0-c-default.jpg" firstName="Alex" lastName="Crooks" job="Enginer"/>
- 
+        {clients.map((client, key) =>
+           <ListItem key={key} client={client}/>
+        )
+        }
         </div>
     )
 }

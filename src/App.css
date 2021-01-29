@@ -3,10 +3,9 @@
   grid-template-columns: minmax(100px, auto) 1fr;
 }
 .client-list{
-
+  overflow: scroll;
   background-color: white;
 }
 .content-book{
-
-  background-color: black;
+  background-color: rgb(255, 255, 255);
 }
