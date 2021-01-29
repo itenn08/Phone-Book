@@ -1,11 +1,12 @@
 .wrapper{
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(100px, auto) 1fr;
 }
 .client-list{
-  flex-grow: 1;
-  background-color: yellow;
+
+  background-color: white;
 }
-.content{
-  flex-grow: 5;
+.content-book{
+
   background-color: black;
 }
