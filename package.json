@@ -17,6 +17,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "eslint": "npx eslint --init",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -38,6 +39,9 @@
     ]
   },
   "devDependencies": {
-    "json-loader": "^0.5.7"
+    "eslint": "^7.19.0",
+    "eslint-plugin-react": "^7.22.0",
+    "json-loader": "^0.5.7",
+    "prettier": "2.2.1"
   }
 }
