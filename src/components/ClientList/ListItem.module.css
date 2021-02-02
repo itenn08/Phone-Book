@@ -1,0 +1,12 @@
+.item {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  line-height: normal;
+}
+.short_name {
+  font-size: 40px;
+  text-transform: uppercase;
+}

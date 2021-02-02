@@ -1,12 +1,7 @@
-import React from 'react';
-import { Button } from 'semantic-ui-react'
+import React from "react";
 
 const Content = () => {
-    return(
-        <div>
-        <Button>Click Here</Button>
-        </div>
-    )
-}
+  return <div>content</div>;
+};
 
 export default Content;
