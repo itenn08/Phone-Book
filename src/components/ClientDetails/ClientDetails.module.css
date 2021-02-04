@@ -1,12 +1,14 @@
-.item {
+.secondary {
   display: flex;
   flex-direction: column;
   margin-bottom: 5px;
 }
 .avatar {
   margin-right: 10px;
+  width: 250px;
+  height: 100%;
 }
-.head {
+.header {
   display: flex;
   margin-bottom: 20px;
 }
@@ -14,23 +16,20 @@
   display: flex;
   flex-direction: column;
 }
-.name {
+.title {
   display: flex;
-}
-.name span {
   font-size: 18px;
   font-weight: 600;
   margin-right: 5px;
 }
-.job {
+.subtitle {
   display: flex;
-}
-.job span {
   font-size: 16px;
   font-weight: 400;
   margin-right: 5px;
   color: gray;
 }
+
 .container {
   padding: 15px;
 }

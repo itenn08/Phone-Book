@@ -14,10 +14,7 @@ module.exports = {
   plugins: ["react"],
   rules: {
     indent: ["error", 2],
-    "linebreak-style": [
-      "error",
-      process.platform === "win32" ? "windows" : "unix",
-    ],
+    "linebreak-style": ["error", "windows"],
     quotes: ["error", "double"],
     semi: ["error", "always"],
   },

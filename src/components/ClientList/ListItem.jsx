@@ -1,37 +1,32 @@
 import React from "react";
 import { Item } from "semantic-ui-react";
-import styles from "./ListItem.module.css";
 import PropTypes from "prop-types";
-/*eslint linebreak-style: ["error", "windows"]*/
-const ListItem = (props) => {
+import styles from "./ListItem.module.css";
+
+const ListItem = ({ client, onClick }) => {
   const shortName = (firstName, lastName) =>
     [firstName, lastName]
       .filter(Boolean)
       .map((item) => item[0])
       .join("");
   return (
-    <Item className={styles.item} onClick={props.onClick}>
-      <div className={styles.short_name}>
-        {shortName(
-          props.client.general.firstName,
-          props.client.general.lastName
-        )}
+    <Item className={styles.item} onClick={onClick}>
+      <div className={styles.avatar}>
+        {shortName(client.general.firstName, client.general.lastName)}
       </div>
       <Item.Content className={styles.content}>
-        <Item.Header as="a" className={styles.name}>
-          {props.client.general.firstName} {props.client.general.lastName}
+        <Item.Header as="a" className={styles.title}>
+          {`${client.general.firstName} ${client.general.lastName}`}
         </Item.Header>
-        <Item.Meta className={styles.job}>
-          <span> {props.client.job.title}</span>
-        </Item.Meta>
+        <Item.Meta className={styles.subtitle}>{client.job.title}</Item.Meta>
       </Item.Content>
     </Item>
   );
 };
 
 ListItem.propTypes = {
-  client: PropTypes.string,
-  onClick: PropTypes.string,
+  client: PropTypes.object,
+  onClick: PropTypes.func,
 };
 
 export default ListItem;

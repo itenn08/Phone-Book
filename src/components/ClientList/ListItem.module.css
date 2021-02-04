@@ -15,7 +15,7 @@
 .item:hover .name {
   color: #ff5e39;
 }
-.short_name {
+.avatar {
   display: flex;
   background-color: #ff5e39;
   justify-content: center;
@@ -31,6 +31,9 @@
 .content {
   margin-left: 15px;
 }
-.name {
+.title {
   color: black;
+}
+.subtitle {
+  color: gray;
 }
