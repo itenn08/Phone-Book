@@ -1,0 +1,36 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+.avatar {
+  margin-right: 10px;
+}
+.head {
+  display: flex;
+  margin-bottom: 20px;
+}
+.general {
+  display: flex;
+  flex-direction: column;
+}
+.name {
+  display: flex;
+}
+.name span {
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 5px;
+}
+.job {
+  display: flex;
+}
+.job span {
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 5px;
+  color: gray;
+}
+.container {
+  padding: 15px;
+}
