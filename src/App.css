@@ -1,12 +1,9 @@
 .wrapper {
   display: grid;
-  grid-template-columns: 250px 1fr;
+  grid-template-columns: 30% 1fr;
 }
 .client-list {
   overflow-y: scroll;
   height: 100vh;
-  background-color: white;
-}
-.content-book {
   background-color: white;
 }

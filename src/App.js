@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import ClientList from "./components/ClientList/ClientList";
-import Content from "./components/Content/Content";
+import ClientDetails from "./components/ClientDetails/ClientDetails";
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
 
 function App() {
+  const [selectedClient, setSelectedClient] = useState(null);
+  const handleSelectedClient = (client) => {
+    if (client === selectedClient) setSelectedClient(null);
+    else setSelectedClient(client);
+  };
   return (
     <div className="wrapper">
       <div className="client-list">
-        <ClientList />
+        <ClientList onSelectClient={handleSelectedClient} />
       </div>
-      <div className="content-book">
-        <Content />
-      </div>
+      {selectedClient ? (
+        <ClientDetails selectedClient={selectedClient} />
+      ) : (
+        "Please select a client to see details!"
+      )}
     </div>
   );
 }
