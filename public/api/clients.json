@@ -1,7 +1,6 @@
 [
   {
     "id": 1,
-    "select": 0,
     "general": {
       "firstName": "",
       "lastName": "Crooks",
@@ -24,7 +23,6 @@
   },
   {
     "id": 2,
-    "select": 0,
     "general": {
       "firstName": "",
       "lastName": "Dare",

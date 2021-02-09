@@ -1,19 +1,32 @@
-import data from "../../json/clients.json";
 const initialState = {
   clientDetails: null,
   clients: [],
-  clientFiltered: null,
+  clientFiltered: [],
+  loading: false,
+  error: null,
 };
 
 export default function clientList(state = initialState, action) {
   switch (action.type) {
-    case "LOAD_CLIENT": {
+    case "LOAD_CLIENT_STARTED":
       return {
         ...state,
-        clients: data,
-        clientFiltered: data,
+        loading: true,
       };
-    }
+    case "LOAD_CLIENT_SUCCESS":
+      return {
+        ...state,
+        clients: action.payload,
+        clientFiltered: action.payload,
+        loading: false,
+        error: null,
+      };
+    case "LOAD_CLIENT_FAILURE":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+      };
     case "SELECT_CLIENT": {
       return {
         ...state,
@@ -22,7 +35,7 @@ export default function clientList(state = initialState, action) {
       };
     }
     case "SEARCH_CLIENT": {
-      const searchResult = state.clients.filter((client) => {
+      const searchResult = Object.values(state.clients).filter((client) => {
         const keywords = `${client.id}${client.general.firstName}${client.general.lastName}${client.general.lastName}${client.address.street}${client.address.city}${client.address.zipCode}${client.address.country}${client.address.country}${client.contact.email}${client.contact.phone}${client.job.company}${client.job.title}`;
         return (
           keywords.toLowerCase().indexOf(action.payload.toLowerCase()) > -1
@@ -30,7 +43,7 @@ export default function clientList(state = initialState, action) {
       });
       return {
         ...state,
-        clients: action.payload === "" ? data : searchResult,
+        clientFiltered: action.payload === "" ? state.clients : searchResult,
       };
     }
     default:
