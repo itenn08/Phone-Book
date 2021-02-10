@@ -1,5 +1,5 @@
 import React from "react";
-import { selectClient } from "../../redux/actions/client-actions";
+import { selectClient } from "../../redux/actions/client.actions";
 import { useDispatch } from "react-redux";
 import { Item } from "semantic-ui-react";
 import PropTypes from "prop-types";
@@ -7,16 +7,17 @@ import styles from "./ListItem.module.css";
 
 const ListItem = ({ client }) => {
   const dispatch = useDispatch();
+
+  const showClient = () => dispatch(selectClient(client));
+
   const shortName = (firstName, lastName) =>
     [firstName, lastName]
       .filter(Boolean)
       .map((item) => item[0])
       .join("");
+
   return (
-    <Item
-      className={styles.item}
-      onClick={() => dispatch(selectClient(client))}
-    >
+    <Item className={styles.item} onClick={showClient}>
       <div className={styles.avatar}>
         {shortName(client.general.firstName, client.general.lastName)}
       </div>

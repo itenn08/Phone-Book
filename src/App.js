@@ -7,6 +7,7 @@ import "./App.css";
 
 function App() {
   const clientDetails = useSelector((state) => state.clientDetails);
+
   return (
     <div className="wrapper">
       <div className="client-list">
