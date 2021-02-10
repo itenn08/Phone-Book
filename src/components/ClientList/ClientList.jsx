@@ -22,8 +22,8 @@ const ClientList = () => {
         <Loader active inline="centered" />
       ) : (
         <div>
-          {Object.values(clientsFiltered).map((client, key) => (
-            <ListItem key={key} client={client} />
+          {clientsFiltered.map((client) => (
+            <ListItem key={client.id} client={client} />
           ))}
         </div>
       )}

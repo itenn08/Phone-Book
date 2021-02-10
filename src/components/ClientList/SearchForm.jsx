@@ -10,10 +10,7 @@ const SearchForm = () => {
     <Input
       icon={{ name: "search", circular: true, link: true }}
       placeholder="Search..."
-      onChange={(e) => {
-        if (e.target.value.length < 3 && e.target.value.length !== 0) return;
-        dispatch(searchClient(e.target.value));
-      }}
+      onChange={(e) => dispatch(searchClient(e.target.value))}
       fluid
     />
   );

@@ -29,7 +29,7 @@ export default function clientList(state = initialState, action) {
         loading: false,
         error: action.payload.error,
       };
-    case CLIENT_TYPES.SELECT_CLIENTS: {
+    case CLIENT_TYPES.SELECT_CLIENT: {
       return {
         ...state,
         clientDetails:
@@ -37,7 +37,7 @@ export default function clientList(state = initialState, action) {
       };
     }
     case CLIENT_TYPES.SEARCH_CLIENTS: {
-      const searchResult = Object.values(state.clients).filter((client) => {
+      const searchResult = state.clients.filter((client) => {
         const keywords = `${client.id} ${client.general.firstName} ${client.general.lastName} ${client.general.lastName} ${client.address.street} ${client.address.city} ${client.address.zipCode} ${client.address.country} ${client.address.country} ${client.contact.email} ${client.contact.phone} ${client.job.company} ${client.job.title}`;
         return (
           keywords.toLowerCase().indexOf(action.payload.toLowerCase()) > -1

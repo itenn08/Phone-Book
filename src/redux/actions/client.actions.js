@@ -5,7 +5,10 @@ export const loadClients = () => async (dispatch) => {
   dispatch({ type: CLIENT_TYPES.LOAD_CLIENTS_PENDING });
   try {
     const { data: clients } = await axios.get("api/clients.json");
-    dispatch({ type: CLIENT_TYPES.LOAD_CLIENTS_FULFILLED, payload: clients });
+    dispatch({
+      type: CLIENT_TYPES.LOAD_CLIENTS_FULFILLED,
+      payload: Object.values(clients),
+    });
   } catch (err) {
     dispatch({
       type: CLIENT_TYPES.LOAD_CLIENTS_REJECTED,
@@ -15,7 +18,7 @@ export const loadClients = () => async (dispatch) => {
 };
 
 export const selectClient = (client) => ({
-  type: CLIENT_TYPES.SELECT_CLIENTS,
+  type: CLIENT_TYPES.SELECT_CLIENT,
   payload: client,
 });
 
