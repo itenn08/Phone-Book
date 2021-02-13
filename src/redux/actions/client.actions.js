@@ -3,8 +3,9 @@ import * as CLIENT_TYPES from "./client.types";
 
 export const loadClients = () => async (dispatch) => {
   dispatch({ type: CLIENT_TYPES.LOAD_CLIENTS_PENDING });
+
   try {
-    const { data: clients } = await axios.get("api/clients.json");
+    const { data: clients } = await axios.get("/api/clients.json");
     dispatch({
       type: CLIENT_TYPES.LOAD_CLIENTS_FULFILLED,
       payload: Object.values(clients),

@@ -1,19 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { Loader } from "semantic-ui-react";
+import { useSelector } from "react-redux";
 import SearchForm from "./SearchForm";
 import ListItem from "./ListItem";
-import { Loader } from "semantic-ui-react";
-import { useSelector, useDispatch } from "react-redux";
-import { loadClients } from "../../redux/actions/client.actions";
 import styles from "./ClientList.module.css";
 
 const ClientList = () => {
   const { clientsFiltered, loading } = useSelector((state) => state);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(loadClients());
-  }, [dispatch]);
 
   return (
     <div className={styles.container}>

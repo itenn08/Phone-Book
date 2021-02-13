@@ -1,24 +1,27 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import ClientList from "./components/ClientList/ClientList";
-import ClientDetails from "./components/ClientDetails/ClientDetails";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loadClients } from "./redux/actions/client.actions";
+import Main from "./routes/Main";
+import NotFound from "./routes/NotFound";
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
 
 function App() {
-  const clientDetails = useSelector((state) => state.clientDetails);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadClients());
+  }, [dispatch]);
 
   return (
-    <div className="wrapper">
-      <div className="client-list">
-        <ClientList />
-      </div>
-      {clientDetails ? (
-        <ClientDetails selectedClient={clientDetails} />
-      ) : (
-        "Please select a client to see details!"
-      )}
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/client/:clientId" component={Main} />
+        <Route exact path="/" component={Main} />
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
   );
 }
 
