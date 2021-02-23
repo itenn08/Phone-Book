@@ -3,13 +3,18 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Dimmer, Loader, Segment, List } from "semantic-ui-react";
 import { selectClient } from "../../redux/actions/client.actions";
+
 import styles from "./ClientDetails.module.css";
 
 const DEFAULT_AVATAR = "https://semantic-ui.com/images/avatar2/small/elyse.png";
 
 const ClientDetails = () => {
   const { clientId } = useParams();
-  const { clientDetails, clients } = useSelector((state) => state);
+
+  const { clientDetails, clients } = useSelector((state) => ({
+    ...state.combineReducers,
+    ...state.clientList,
+  }));
 
   const dispatch = useDispatch();
 

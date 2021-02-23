@@ -3,14 +3,16 @@ import { Loader } from "semantic-ui-react";
 import { useSelector } from "react-redux";
 import SearchForm from "./SearchForm";
 import ListItem from "./ListItem";
-import styles from "./ClientList.module.css";
 
 const ClientList = () => {
-  const { clientsFiltered, loading } = useSelector((state) => state);
+  const { clientsFiltered, loading } = useSelector((state) => ({
+    ...state.combineReducers,
+    ...state.clientList,
+  }));
 
   return (
-    <div className={styles.container}>
-      <SearchForm className={styles.search} />
+    <div>
+      <SearchForm />
       {loading ? (
         <Loader active inline="centered" />
       ) : (

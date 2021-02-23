@@ -1,0 +1,12 @@
+.closeSidebarBtn {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+.showSidebarBtn {
+  padding: 15px 0 0 15px;
+}
