@@ -30,10 +30,12 @@ export default function clientList(state = initialState, action) {
         error: action.payload.error,
       };
     case CLIENT_TYPES.SELECT_CLIENT: {
+      const selectClient = state.clients.find(
+        (client) => client.id == action.payload
+      );
       return {
         ...state,
-        clientDetails:
-          state.clientDetails === action.payload ? null : action.payload,
+        clientDetails: selectClient,
       };
     }
     case CLIENT_TYPES.SEARCH_CLIENTS: {

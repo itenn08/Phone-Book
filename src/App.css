@@ -7,3 +7,9 @@
   height: 100vh;
   background-color: white;
 }
+.mobile-wrapper {
+  height: 100vh;
+}
+.clientList_container {
+  padding: 15px;
+}
