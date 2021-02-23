@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ClientList from "../components/ClientList/ClientList";
 
 const DesktopLayout = (props) => (
@@ -11,7 +12,7 @@ const DesktopLayout = (props) => (
 );
 
 DesktopLayout.propTypes = {
-  children: React.Node,
+  children: PropTypes.array,
 };
 
 export default DesktopLayout;
