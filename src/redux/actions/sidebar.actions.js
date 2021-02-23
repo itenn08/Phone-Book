@@ -1,10 +1,9 @@
 import * as SIDEBAR_TYPES from "./sidebar.types";
 
-const toggleSidebar = () => async (dispatch) => {
-  dispatch({
-    type: SIDEBAR_TYPES.TOGGLE_SIDEBAR,
-    payload: false,
-  });
-};
+export const openSidebar = () => ({
+  type: SIDEBAR_TYPES.OPEN_SIDEBAR,
+});
 
-export default toggleSidebar;
+export const closeSidebar = () => ({
+  type: SIDEBAR_TYPES.CLOSE_SIDEBAR,
+});

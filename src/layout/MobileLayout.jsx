@@ -3,14 +3,11 @@ import { Button, Menu, Segment, Sidebar } from "semantic-ui-react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import ClientList from "../components/ClientList/ClientList";
-import toggleSidebar from "../redux/actions/sidebar.actions";
+import { closeSidebar, openSidebar } from "../redux/actions/sidebar.actions";
 import styles from "./MobileLayout.module.css";
 
 const MobileLayout = (props) => {
-  const sidebar = useSelector((state) => ({
-    ...state.combineReducers,
-    ...state.sidebar,
-  }));
+  const sidebar = useSelector((state) => state.sidebar);
 
   const dispatch = useDispatch();
 
@@ -19,6 +16,7 @@ const MobileLayout = (props) => {
       <Sidebar
         as={Menu}
         animation="overlay"
+        onHide={() => dispatch(closeSidebar())}
         visible={sidebar.mobileMenu}
         width="wide"
       >
@@ -27,7 +25,7 @@ const MobileLayout = (props) => {
             <Button
               icon="close"
               circular
-              onClick={() => dispatch(toggleSidebar())}
+              onClick={() => dispatch(closeSidebar())}
             />
           </div>
           <ClientList />
@@ -35,7 +33,7 @@ const MobileLayout = (props) => {
       </Sidebar>
       <div className="mobile-wrapper">
         <div className={styles.showSidebarBtn}>
-          <Button icon="bars" onClick={() => dispatch(toggleSidebar())} />
+          <Button icon="bars" onClick={() => dispatch(openSidebar())} />
         </div>
 
         <Sidebar.Pusher>{props.children}</Sidebar.Pusher>

@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loadClients } from "./redux/actions/client.actions";
-import toggleSidebar from "./redux/actions/sidebar.actions";
+import { openSidebar } from "./redux/actions/sidebar.actions";
 import ClientDetails from "./components/ClientDetails/ClientDetails";
 import DesktopLayout from "./layout/DesktopLayout";
 import MobileLayout from "./layout/MobileLayout";
@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     dispatch(loadClients());
-    dispatch(toggleSidebar());
+    dispatch(openSidebar());
   }, [dispatch]);
 
   return (
@@ -42,9 +42,7 @@ function App() {
             </MobileLayout>
           )}
         </Route>
-        <Route exact path="/">
-          <Redirect to="/client/" />
-        </Route>
+        <Redirect exact from="/" to="/client/" />
         <Route component={NotFound} />
       </Switch>
     </Router>

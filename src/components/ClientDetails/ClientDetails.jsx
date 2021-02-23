@@ -11,10 +11,7 @@ const DEFAULT_AVATAR = "https://semantic-ui.com/images/avatar2/small/elyse.png";
 const ClientDetails = () => {
   const { clientId } = useParams();
 
-  const { clientDetails, clients } = useSelector((state) => ({
-    ...state.combineReducers,
-    ...state.clientList,
-  }));
+  const { clientDetails, clients } = useSelector((state) => state.clientList);
 
   const dispatch = useDispatch();
 

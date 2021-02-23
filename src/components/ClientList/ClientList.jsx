@@ -5,10 +5,7 @@ import SearchForm from "./SearchForm";
 import ListItem from "./ListItem";
 
 const ClientList = () => {
-  const { clientsFiltered, loading } = useSelector((state) => ({
-    ...state.combineReducers,
-    ...state.clientList,
-  }));
+  const { clientsFiltered, loading } = useSelector((state) => state.clientList);
 
   return (
     <div>

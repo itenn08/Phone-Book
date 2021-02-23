@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Item } from "semantic-ui-react";
 import { useDispatch } from "react-redux";
-import toggleSidebar from "../../redux/actions/sidebar.actions";
+import { closeSidebar } from "../../redux/actions/sidebar.actions";
 import styles from "./ListItem.module.css";
 
 const ListItem = ({ client }) => {
@@ -16,7 +16,7 @@ const ListItem = ({ client }) => {
   const dispatch = useDispatch();
 
   return (
-    <Link to={`/client/${client.id}`} onClick={() => dispatch(toggleSidebar())}>
+    <Link to={`/client/${client.id}`} onClick={() => dispatch(closeSidebar())}>
       <Item className={styles.item}>
         <div className={styles.avatar}>
           {shortName(client.general.firstName, client.general.lastName)}
